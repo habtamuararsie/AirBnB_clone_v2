@@ -1,20 +1,25 @@
 #!/usr/bin/python3
-"""Module - script that starts a Flask web application"""
+"""Starts Flask web app
+Routes:
+    / - display "Hello HBNB!"
+    /hbnb - display "HBNB"
+"""
 from flask import Flask
+
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def hello_hbnb():
-    """Handles the root url"""
-    return 'Hello HBNB!'
+def hbnb_route():
+    """prints Hello HBNB"""
+    return "Hello HBNB!"
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """Handles hbnb route"""
-    return 'HBNB'
+    """prints HBNB"""
+    return "HBNB"
 
 
-if __name__ == '__main__':
-    app.run("0.0.0.0", 5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0")
